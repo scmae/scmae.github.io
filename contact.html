@@ -31,6 +31,25 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        var isNS = (navigator.appName == "PN") ? 1 : 0;
+        if(navigator.appName == "PN") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+        function mischandler(){
+        return false;
+        }
+        function mousehandler(e){
+        var myevent = (isNS) ? e : event;
+        var eventbutton = (isNS) ? myevent.which : myevent.button;
+        if((eventbutton==2)||(eventbutton==3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+        </script>
+    
 </head>
 
 <body>
@@ -146,27 +165,27 @@
                 <div class="col-lg-7 mb-5 mb-lg-0">
                     <div class="contact-form">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form id="submit-form" action="">
                             <div class="form-row">
                                 <div class="col-sm-6 control-group">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                    <input type="text" class="form-control p-4" id="name" name ="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="col-sm-6 control-group">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                    <input type="email" class="form-control p-4" id="email" name ="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="number" class="form-control p-4" id="phone" placeholder="Phone Number" required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="number" class="form-control p-4" id="phone" name ="number" placeholder="Phone Number" required="required" data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="text" class="form-control p-4" id="subject" name ="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control p-4" rows="6" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control p-4" rows="6" id="message" name ="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
@@ -178,13 +197,32 @@
                 <div class="col-lg-5" style="min-height: 400px;">
                     <div class="position-relative h-100 rounded overflow-hidden">
                         <iframe style="width: 100%; height: 100%; object-fit: cover;"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3530.572988532695!2d54.51816791356865!3d24.380376354525893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e40e7483d11d5%3A0x7672bbc1a32c03c2!2sMusaffah%20-%20Abu%20Dhabi!5e0!3m2!1sen!2sae!4v1648796631779!5m2!1sen!2sae"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3633.968031172309!2d54.513033699999994!3d24.382415499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e413afd96a325%3A0x7def3c83ff4c736!2sSIMBIO%20Maintenance%20Company!5e0!3m2!1sen!2sae!4v1650260827567!5m2!1sen!2sae"
                         frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+        url:"https://script.google.com/macros/s/AKfycbylg3U554TEjwQJX2wM8GEp5_70A_DPrvhyChdF_A7pyz_j-tGGiyVEHxc0MarnU4NlxQ/exec",
+        data:$("#submit-form").serialize(),
+        method:"post",
+        success:function (response){
+        alert("One of our team will be in contact with you shortly. Thank you!")
+        window.location.reload()
+        //window.location.href="https://google.com"
+        },
+        error:function (err){
+        alert("Something Error")
+        
+        }
+        })
+        })
+        </script>
     <!-- Contact End -->
 
 
@@ -247,7 +285,7 @@
             <div class="col-lg-6 text-center text-md-right">
                 <ul class="nav d-inline-flex">
                     <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="">Privacy</a>
+                        <a class="nav-link text-white py-0" href="mailto:hr@simbiocleaning.com">Careers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white py-0" href="">Terms</a>

@@ -31,6 +31,21 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <script>
+        var isNS = (navigator.appName == "PN") ? 1 : 0;
+        if(navigator.appName == "PN") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+        function mischandler(){
+        return false;
+        }
+        function mousehandler(e){
+        var myevent = (isNS) ? e : event;
+        var eventbutton = (isNS) ? myevent.which : myevent.button;
+        if((eventbutton==2)||(eventbutton==3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+        </script>
 </head>
 
 <body>
@@ -65,7 +80,7 @@
                             <a class="text-primary p-2" href="https://twitter.com/simbiocleaning" target="_blank">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a class="text-primary p-2" href="https://www.linkedin.com/" target="_blank">
+                            <a class="text-primary p-2" href="https://www.linkedin.com/in/simbio-cleaning-85045a236/" target="_blank">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                             <a class="text-primary p-2" href="https://www.instagram.com/" target="_blank">
@@ -158,7 +173,7 @@
         <div class="row">
             <div class="col-lg-4 p-0">
                 <div class="contact-info-item d-flex align-items-center justify-content-center bg-primary text-white py-4 py-lg-0">
-                    <i class="fa fa-3x fa-map-marker-alt text-secondary mr-4"></i>
+                   <a href="https://goo.gl/maps/Pyytf7sb71Ex4z648" target="_blank"><i class="fa fa-3x fa-map-marker-alt text-secondary mr-4"></i></a>
                     <div class="">
                         <h5 class="mb-2">Our Office</h5>
                         <p class="m-0">M10, Musaffah, Abu dhabi</p>
@@ -167,7 +182,7 @@
             </div>
             <div class="col-lg-4 p-0">
                 <div class="contact-info-item d-flex align-items-center justify-content-center bg-secondary text-white py-4 py-lg-0">
-                    <i class="fa fa-3x fa-envelope-open text-primary mr-4"></i>
+                    <a href="mailto:info@simbiocleaning.com" ><i class="fa fa-3x fa-envelope-open text-primary mr-4"></i></a>
                     <div class="">
                         <h5 class="mb-2">Email Us</h5>
                         <p class="m-0">info@simbiocleaning.com</p>
@@ -176,7 +191,7 @@
             </div>
             <div class="col-lg-4 p-0">
                 <div class="contact-info-item d-flex align-items-center justify-content-center bg-primary text-white py-4 py-lg-0">
-                    <i class="fa fa-3x fa-phone-alt text-secondary mr-4"></i>
+                    <a href="tel:+971554838001" ><i class="fa fa-3x fa-phone-alt text-secondary mr-4"></i></a>
                     <div class="">
                         <h5 class="mb-2">Call Us</h5>
                         <p class="m-0">+971 55 483 8001</p>
@@ -269,6 +284,13 @@
                             </div>
                             <h5 class="font-weight-bold mb-4 px-4">Carpet Cleaning</h5>
                             <img src="img/blog-2.jpg" alt="">
+                        </div>
+                        <div class="d-flex flex-column align-items-center text-center bg-white rounded overflow-hidden pt-4">
+                            <div class="icon-box bg-light text-secondary shadow mt-2 mb-4">
+                                <i class="fa fa-2x fa-city"></i>
+                            </div>
+                            <h5 class="font-weight-bold mb-4 px-4">All Type of contract</h5>
+                            <img src="img/blog-3.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -576,7 +598,7 @@
                     <a class="btn btn-light btn-social mr-2" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a class="btn btn-light btn-social mr-2" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-light btn-social mr-2" href="https://twitter.com/simbiocleaning" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-light btn-social mr-2" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-light btn-social mr-2" href="https://www.linkedin.com/in/simbio-cleaning-85045a236/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     
                 </div>
             </div>
@@ -613,7 +635,7 @@
             <div class="col-lg-6 text-center text-md-right">
                 <ul class="nav d-inline-flex">
                     <li class="nav-item">
-                        <a class="nav-link text-white py-0" href="">Privacy</a>
+                        <a class="nav-link text-white py-0" href="mailto:hr@simbiocleaning.com">Careers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white py-0" href="">Terms</a>
